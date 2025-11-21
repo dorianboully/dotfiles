@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+set_history() {
+    local CACHEDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+
+    [ -d "$CACHEDIR" ] || mkdir "$CACHEDIR"
+
+    HISTFILE="${CACHEDIR}/zhistory"
+}
+
+set_history
+
+HISTSIZE=1000
+
+SAVEHIST=1000
+
+setopt appendhistory

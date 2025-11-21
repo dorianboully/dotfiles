@@ -1,0 +1,33 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "lualine": [],
+    "luasnip": [],
+    "mini.nvim": [],
+    "nvim-autopairs": {
+      "rev": "7a2c97cccd60abc559344042fefb1d5a85b3e33b",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-surround": {
+      "rev": "fcfa7e02323d57bfacc3a141f8a74498e1522064",
+      "src": "https://github.com/kylechui/nvim-surround"
+    },
+    "nvim-treesitter": {
+      "version": "'main'"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "227165aaeb07b567fb9c066f224816aa8f3ce63f",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+      "version": "'main'"
+    },
+    "nvim-web-devicons": [],
+    "rose-pine": [],
+    "snacks.nvim": [],
+    "surround": [],
+    "vimtex": [],
+    "which-key": []
+  }
+}

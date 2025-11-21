@@ -1,0 +1,39 @@
+alias sudo="sudo " \
+  cp="cp -rv" \
+  mv="mv -v" \
+  rm="rm -r" \
+  mkd="mkdir -pv" \
+  ..="cd .." \
+  ...="cd ../.."
+
+alias \
+  ls="ls -hN --color=auto --group-directories-first" \
+  lsa="eza -a --group-directories-first" \
+  lsl="eza -l --group-directories-first" \
+  lsal="eza -al --group-directories-first" \
+  lta="eza -aT --group-directories-first"
+
+alias \
+  st="stow --no-folding"
+
+alias \
+  ka="killall" \
+  g="git" \
+  sdn="sudo shutdown -h now" \
+  rb="sudo reboot" \
+  v="nvim " \
+  V="sudo -E nvim" \
+  za="zathura" \
+  ya="yazi"
+
+alias \
+  g="git" \
+  gs="git status" \
+  ga="git add" \
+  gc="git commit -m" \
+  gd="git diff" \
+  gl="git log --all --decorate --oneline --graph"
+
+alias \
+  nfu="sudo nix flake update" \
+  nos="nixos-rebuild switch --use-remote-sudo --flake"

@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000 d1aa597f3cd3562000410637b003d3b6d12004ba Dorian Boully <dorian@boully.fr> 1763490057 +0100	branch: Created from main
+d1aa597f3cd3562000410637b003d3b6d12004ba d1aa597f3cd3562000410637b003d3b6d12004ba Dorian Boully <dorian@boully.fr> 1763490097 +0100	Branch: renamed refs/heads/new to refs/heads/v2
+d1aa597f3cd3562000410637b003d3b6d12004ba e63662a3191f170e355cebca9cc90a01ab94ef89 Dorian Boully <dorian@boully.fr> 1763492129 +0100	pull: Fast-forward
+e63662a3191f170e355cebca9cc90a01ab94ef89 b6698edf851792343218149731c9a7ebdbb392cf Dorian Boully <dorian@boully.fr> 1763493197 +0100	revert: Revert "Merge pull request #1 from dorianboully/codex/configure-native-treesitter-in-neovim"
+b6698edf851792343218149731c9a7ebdbb392cf 12985ad8a32da2e9f3c16abcfc8b885af03fb970 Dorian Boully <dorian@boully.fr> 1763499736 +0100	commit: textobjects
+12985ad8a32da2e9f3c16abcfc8b885af03fb970 8bd5114bc5e50509231da71e1b8781d647a783e6 Dorian Boully <dorian@boully.fr> 1763504885 +0100	commit: better autopairs
+8bd5114bc5e50509231da71e1b8781d647a783e6 973c181d05048ec91a021e7e15dd3e63f65aba4e Dorian Boully <dorian@boully.fr> 1763539565 +0100	commit: math textobj queries
+973c181d05048ec91a021e7e15dd3e63f65aba4e 6ecc7b1879200fee32eb81b23ab24da444f5558c Dorian Boully <dorian@boully.fr> 1763540378 +0100	commit: blink completion
+6ecc7b1879200fee32eb81b23ab24da444f5558c c2459ab8654a4ca39041aa6119b7eec06d9109d4 Dorian Boully <dorian@boully.fr> 1763553638 +0100	commit: set cwd in compile and fix view bug
+c2459ab8654a4ca39041aa6119b7eec06d9109d4 88329a611982cb8ed0d7b0f708d6213e03aafe2c Dorian Boully <dorian@boully.fr> 1763554442 +0100	commit: fix snippets
+88329a611982cb8ed0d7b0f708d6213e03aafe2c 6bd538afec048b19c5f75bf63faede3420cfd739 Dorian Boully <dorian@boully.fr> 1763571613 +0100	pull: Fast-forward
+6bd538afec048b19c5f75bf63faede3420cfd739 fc9c9379b714bfec16ffd8e80b8fdd460ae1058d Dorian Boully <dorian@boully.fr> 1763628084 +0100	commit: autostart treesitter

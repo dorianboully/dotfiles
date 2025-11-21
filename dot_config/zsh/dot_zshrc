@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completionrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completionrc" 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/optionsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/optionsrc" 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/historyrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/historyrc" 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasesrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasesrc" 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindingsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindingsrc" 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/themerc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/themerc" 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pluginsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pluginsrc" 
+[ -f  "$HOME/.local/share/bob/env/env.sh" ] && source "$HOME/.local/share/bob/env/env.sh"
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

@@ -1,0 +1,10 @@
+[ ! -f "${ZDOTDIR:-~}/.antidote/antidote.zsh" ] &&  {
+    echo "Installing Antidote in ${ZDOTDIR:-~}/.antidote"
+    rm -rf "${ZDOTDIR:-~}/.antidote"
+    git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote || { echo "Failed to clone Antidote" && return 2 }
+    echo "Done."
+}
+
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+antidote load
