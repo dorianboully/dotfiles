@@ -21,3 +21,4 @@ c2459ab8654a4ca39041aa6119b7eec06d9109d4 88329a611982cb8ed0d7b0f708d6213e03aafe2
 6bd538afec048b19c5f75bf63faede3420cfd739 9a9320be26513be57cc6546e7f4cef168884c1ff Dorian Boully <dorian@boully.fr> 1763571635 +0100	checkout: moving from v2 to typstInitCmd
 9a9320be26513be57cc6546e7f4cef168884c1ff 6bd538afec048b19c5f75bf63faede3420cfd739 Dorian Boully <dorian@boully.fr> 1763571675 +0100	checkout: moving from typstInitCmd to v2
 6bd538afec048b19c5f75bf63faede3420cfd739 fc9c9379b714bfec16ffd8e80b8fdd460ae1058d Dorian Boully <dorian@boully.fr> 1763628084 +0100	commit: autostart treesitter
+fc9c9379b714bfec16ffd8e80b8fdd460ae1058d 3c57cf685b5a4d1f54a94903aacafc3029f716f4 Dorian Boully <dorian@boully.fr> 1764703799 +0100	pull: Fast-forward

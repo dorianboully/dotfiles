@@ -10,11 +10,11 @@
       },
       {
         "language": "typst",
-        "path": "./typst/math.json"
+        "path": "./typst/text.json"
       },
       {
         "language": "typst",
-        "path": "./typst/space.json"
+        "path": "./typst/math.json"
       },
       {
         "language": "typst",

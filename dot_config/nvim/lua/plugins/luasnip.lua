@@ -6,8 +6,9 @@ return {
   opts = {
     enable_autosnippets = true,
     history = true,
-    region_check_events = { "CursorMoved" },
+    region_check_events = { "CursorMoved", "InsertEnter" },
     delete_check_events = { "TextChanged" },
+    update_events = { "TextChanged", "TextChangedI" }
   },
 
   keys = {
@@ -40,12 +41,15 @@ return {
         if ls.expandable() then
           vim.schedule(ls.expand)
           return
+        elseif ls.jumpable(1) then
+          vim.schedule(function() ls.jump(1) end)
         else
           return "<Tab>"
         end
       end,
       expr = true,
-      mode = { "i", "s" }
+      mode = { "i", "s" },
+      noremap = true
     },
     {
       "<C-L>",

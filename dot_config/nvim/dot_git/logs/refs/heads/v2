@@ -10,3 +10,4 @@ b6698edf851792343218149731c9a7ebdbb392cf 12985ad8a32da2e9f3c16abcfc8b885af03fb97
 c2459ab8654a4ca39041aa6119b7eec06d9109d4 88329a611982cb8ed0d7b0f708d6213e03aafe2c Dorian Boully <dorian@boully.fr> 1763554442 +0100	commit: fix snippets
 88329a611982cb8ed0d7b0f708d6213e03aafe2c 6bd538afec048b19c5f75bf63faede3420cfd739 Dorian Boully <dorian@boully.fr> 1763571613 +0100	pull: Fast-forward
 6bd538afec048b19c5f75bf63faede3420cfd739 fc9c9379b714bfec16ffd8e80b8fdd460ae1058d Dorian Boully <dorian@boully.fr> 1763628084 +0100	commit: autostart treesitter
+fc9c9379b714bfec16ffd8e80b8fdd460ae1058d 3c57cf685b5a4d1f54a94903aacafc3029f716f4 Dorian Boully <dorian@boully.fr> 1764703799 +0100	pull: Fast-forward
