@@ -1,5 +1,9 @@
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+#import "@preview/physica:0.9.7": Set
 #import "@preview/theorion:0.4.1": *
 #import cosmos.simple: *
+
+#let st = Set
 
 // Custom theorems env styles
 #let (definition-counter, definition-box, definition, show-definition) = make-frame(
@@ -45,8 +49,8 @@
   date: auto,
   paper: "a4",
   size: 11pt,
-  textfont: "TeX Gyre Pagella",
-  mathfont: "TeX Gyre Pagella Math",
+  textfont: "",
+  mathfont: "",
   body,
 ) => {
   import "@preview/icu-datetime:0.1.2": fmt-date, fmt-datetime
@@ -58,11 +62,18 @@
 
   // Headings
   show heading: set block(below: 0.8em)
-  set heading(numbering: "1.1")
+  set heading(supplement: "Section", numbering: "1.")
+  show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    it
+  }
 
   // Math
   show math.equation: set text(font: mathfont)
-  set math.equation(numbering: "(1.1)")
+  set math.equation(numbering: n => {
+    numbering("(1.1)", counter(heading).get().first(), n)
+  })
+  set math.equation(supplement: none)
 
   // Theorems style
 
