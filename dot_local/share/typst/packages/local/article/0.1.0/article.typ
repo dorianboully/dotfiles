@@ -1,9 +1,5 @@
-#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
-#import "@preview/physica:0.9.7": Set
 #import "@preview/theorion:0.4.1": *
 #import cosmos.simple: *
-
-#let st = Set
 
 // Custom theorems env styles
 #let (definition-counter, definition-box, definition, show-definition) = make-frame(
@@ -45,17 +41,21 @@
 #let article = (
   lang: "fr",
   title: [],
-  author: "Dorian Boully",
-  date: auto,
+  author: "",
+  date: none,
   paper: "a4",
   size: 11pt,
-  textfont: "",
-  mathfont: "",
+  textfont: auto,
+  mathfont: auto,
   body,
 ) => {
   import "@preview/icu-datetime:0.1.2": fmt-date, fmt-datetime
 
-  // Title
+  // SANITIZATION
+  let textfont = if textfont == "" { auto } else { textfont }
+  let mathfont = if mathfont == "" { auto } else { mathfont }
+
+  // Title settings
   show std.title: set text(size: 22pt)
   show std.title: set align(center)
   show std.title: set block(below: 1.2em)
@@ -63,64 +63,75 @@
   // Headings
   show heading: set block(below: 0.8em)
   set heading(supplement: "Section", numbering: "1.")
-  show heading.where(level: 1): it => {
-    counter(math.equation).update(0)
-    it
-  }
 
   // Math
-  show math.equation: set text(font: mathfont)
-  set math.equation(numbering: n => {
-    numbering("(1.1)", counter(heading).get().first(), n)
-  })
-  set math.equation(supplement: none)
+  if mathfont != auto {
+    show math.equation: set text(font: mathfont)
+  }
 
-  // Theorems style
+  // Lists
+  set enum(numbering: "1..a)")
 
-  show: show-theorion
-  show: show-definition
-  show: show-remark
-  show: show-example
-  show: show-exercise
-
+  // Date Logic
   let dateStr = if date == auto {
     fmt-date(datetime.today(), locale: lang)
+  } else if date == none {
+    ""
   } else {
     fmt-date(date, locale: lang)
   }
 
-  // Document
+  // Document setup
   set page(paper: paper, numbering: "1")
   set par(justify: true)
-  set text(
-    font: textfont,
-    lang: lang,
-    size: size,
-  )
+
+  set text(lang: lang, size: size)
+  if textfont != auto {
+    set text(font: textfont)
+  }
+
   set document(
     title: title,
     author: author,
     date: date,
   )
 
+  // Theorems
+  show: show-theorion
+  show: show-definition
+  show: show-remark
+  show: show-example
+  show: show-exercise
 
-  // Title ------------------------------------------------------------
+  // Title Block ------------------------------------------------------------
+  // CHANGED: Only display this block if at least one element is present
+  if title != [] or author != "" or date != none {
+    place(
+      top + center,
+      float: true,
+      scope: "parent",
+      clearance: 5em,
+      {
+        if title != [] {
+          upper(std.title())
+        }
 
-  place(
-    top + center,
-    float: true,
-    scope: "parent",
-    clearance: 5em,
-    {
-      upper(std.title())
-      [
-        #set text(size: 14pt)
-        #author
-
-        #dateStr
-      ]
-    },
-  )
+        // Group author and date to handle spacing nicely
+        if author != "" or dateStr != "" {
+          block({
+            set text(size: 14pt)
+            if author != "" {
+              author
+              linebreak()
+            }
+            if dateStr != "" {
+              dateStr
+            }
+          })
+        }
+      },
+    )
+  }
 
   body
 }
