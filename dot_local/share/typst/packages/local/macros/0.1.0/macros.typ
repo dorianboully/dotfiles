@@ -4,7 +4,7 @@
 }
 
 #let eq-numbering = n => {
-  numbering("(1.1)", counter(heading).get().first(), n)
+  numbering("(1)", n)
 }
 
 #let equation(id: "eq", body) = {
@@ -19,6 +19,5 @@
 #let ker = math.op("ker")
 #let cok = math.op("coker")
 #let hom = math.op("Hom")
-#let Hom = math.op("Hom")
 #let Ext = math.op("Ext")
 #let Tor = math.op("Tor")

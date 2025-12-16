@@ -170,7 +170,9 @@
   }
 
   // Lists
-  set enum(numbering: "1.a)", full: false)
+  show enum: set block(below: .65em)
+  show list: set block(below: .65em)
+  set enum(numbering: "1.a)")
 
   // Date Logic
   let dateStr = if date == auto {
