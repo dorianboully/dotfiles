@@ -1,0 +1,8 @@
+[package]
+name = "mathdoc"
+version = "0.1.0"
+entrypoint = "mathdoc.typ"
+
+[template]
+path = "template"
+entrypoint = "main.typ"

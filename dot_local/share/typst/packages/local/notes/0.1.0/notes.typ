@@ -169,6 +169,11 @@
     show math.equation: set text(font: mathfont)
   }
 
+  show math.equation: it => {
+    show ";": math.thin + ";"
+    it
+  }
+
   // Lists
   show enum: set block(below: .65em)
   show list: set block(below: .65em)
@@ -199,7 +204,6 @@
   set document(title: title, author: author, date: date)
 
   // Title Block
-  // CHANGED: Only display this block if at least one element is present
   if title != [] or author != "" or date != none {
     place(
       top + center,
@@ -211,7 +215,6 @@
           upper(std.title())
         }
 
-        // Group author and date to handle spacing nicely
         if author != "" or dateStr != "" {
           block({
             set text(size: 14pt)

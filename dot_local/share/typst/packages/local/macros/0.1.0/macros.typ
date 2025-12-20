@@ -21,3 +21,5 @@
 #let hom = math.op("Hom")
 #let Ext = math.op("Ext")
 #let Tor = math.op("Tor")
+#let rg = math.op("rg")
+#let Frac = math.op("Frac")
