@@ -14,6 +14,20 @@
   ]
 }
 
+#let isor = (
+  label: $tilde$,
+  label-angle: auto,
+  label-side: right,
+  label-sep: 0pt,
+)
+
+#let iso = (
+  label: $tilde$,
+  label-angle: auto,
+  label-side: left,
+  label-sep: 0pt,
+)
+
 #let im = math.op("im")
 #let id = math.op("Id")
 #let ker = math.op("ker")
