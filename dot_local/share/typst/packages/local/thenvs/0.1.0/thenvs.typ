@@ -5,14 +5,20 @@
 // This state tracks which style is active ("notes", "article", "exercises")
 #let style-state = state("theorion-style", "notes")
 
+#let vspace = 1.2em
+
 // --- 2. RENDERING LOGIC ---
 // Strategies
 #let render-simple(prefix: none, title: "", full-title: auto, body) = {
-  [#strong(full-title).#sym.space#emph(body)]
+  block(above: vspace, below: vspace)[
+    #strong(full-title).#sym.space#emph(body)
+  ]
 }
 
 #let render-simple-upright(prefix: none, title: "", full-title: auto, body) = {
-  [#strong(full-title).#sym.space#body]
+  block(above: vspace, below: vspace)[
+    #strong(full-title).#sym.space#body
+  ]
 }
 
 #let fancy-renderer(base-color, symbol) = {
@@ -46,13 +52,7 @@
     let renderer = if current-style == "article" {
        if type in ("remark", "example", "exercise") { render-simple-upright }
        else { render-simple }
-    } else if current-style == "exercises" {
-       (prefix: none, title: "", full-title: auto, body) => {
-          block(below: 1em, above: 1em)[
-            #text(size: 1.1em, weight: "bold")[#full-title.] #body
-          ]
-       }
-    } else {
+    }  else {
        // "notes" style
        let conf = notes-config.at(type)
        fancy-renderer(conf.color, conf.symbol)

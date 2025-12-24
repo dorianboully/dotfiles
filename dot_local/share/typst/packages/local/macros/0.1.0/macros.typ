@@ -7,12 +7,15 @@
   numbering("(1)", n)
 }
 
-#let equation(id: "eq", body) = {
-  set math.equation(numbering: eq-numbering, supplement: none)
-  [
-    $ #body $ #label(id)
-  ]
-}
+#let equation(id: "eq", body) = [
+  #math.equation(
+    block: true, 
+    numbering: eq-numbering, 
+    supplement: none, 
+    body
+  )
+  #label(id)
+]
 
 #let isor = (
   label: $tilde$,
@@ -28,10 +31,12 @@
   label-sep: 0pt,
 )
 
+#let Re = math.op("Re")
+#let Im = math.op("Im")
 #let im = math.op("im")
 #let id = math.op("Id")
 #let ker = math.op("ker")
-#let cok = math.op("coker")
+#let coker = math.op("coker")
 #let hom = math.op("Hom")
 #let Ext = math.op("Ext")
 #let Tor = math.op("Tor")

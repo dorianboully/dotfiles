@@ -35,7 +35,7 @@
   }
 
   show math.equation: it => {
-    show ";": math.thin + ";"
+    show ";": ";" + math.thin
     it
   }
 
