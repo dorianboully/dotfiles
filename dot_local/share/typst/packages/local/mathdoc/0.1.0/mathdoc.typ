@@ -39,6 +39,9 @@
     it
   }
 
+  show math.equation.where(block: true): block.with(width: 100%)
+
+
   // Lists
   show enum: set block(below: .65em)
   show list: set block(below: .65em)
