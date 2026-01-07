@@ -24,8 +24,9 @@
 #let fancy-renderer(base-color, symbol) = {
   fancy-box.with(
     get-border-color: loc => base-color.darken(15%),
-    get-body-color: loc => base-color.lighten(95%),
+    get-body-color: loc => base-color.lighten(85%),
     get-symbol: loc => symbol,
+    breakable: true,
   )
 }
 

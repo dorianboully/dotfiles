@@ -42,3 +42,8 @@
 #let Tor = math.op("Tor")
 #let rg = math.op("rg")
 #let Frac = math.op("Frac")
+
+#let arrowTildeLong = $arrow.r.long^(#move(dy: .5em)[$tilde$])$
+#let arrowHookLong = $stretch(arrow.r.hook, size: #.5cm)$
+
+$arrowTildeLong$
