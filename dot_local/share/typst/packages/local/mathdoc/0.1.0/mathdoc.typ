@@ -43,9 +43,10 @@
 
 
   // Lists
-  show enum: set block(below: .65em)
-  show list: set block(below: .65em)
   set enum(numbering: "1.a)")
+  set enum(spacing: 0.65em)
+  set list(spacing: 0.65em)
+
 
   // Date Logic
   let dateStr = if date == auto {

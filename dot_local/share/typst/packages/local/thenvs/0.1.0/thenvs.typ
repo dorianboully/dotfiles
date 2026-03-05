@@ -26,7 +26,6 @@
     get-border-color: loc => base-color.darken(15%),
     get-body-color: loc => base-color.lighten(85%),
     get-symbol: loc => symbol,
-    breakable: true,
   )
 }
 
@@ -56,6 +55,7 @@
     }  else {
        // "notes" style
        let conf = notes-config.at(type)
+
        fancy-renderer(conf.color, conf.symbol)
     }
     
@@ -101,7 +101,7 @@
 #let (_, _, definition, show-def) = make-frame(
   "definition", 
   theorion-i18n-map.at("definition"),
-  inherited-levels: 1, 
+  counter: thm-c,
   render: dynamic-renderer("definition")
 )
 
@@ -115,21 +115,21 @@
 #let (_, _, remark, show-rem) = make-frame(
   "remark", 
   theorion-i18n-map.at("remark"),
-  inherited-levels: 1, 
+  counter: thm-c,
   render: dynamic-renderer("remark")
 )
 
-#let (ex-c, _, example, show-ex) = make-frame(
+#let (_, _, example, show-ex) = make-frame(
   "example", 
   theorion-i18n-map.at("example"),
-  inherited-levels: 1, 
+  counter: thm-c,
   render: dynamic-renderer("example")
 )
 
 #let (_, _, exercise, show-exc) = make-frame(
   "exercise", 
   theorion-i18n-map.at("exercise"),
-  counter: ex-c, 
+  counter: thm-c,
   render: dynamic-renderer("exercise")
 )
 
