@@ -1,17 +1,14 @@
-#!/usr/bin/env zsh
-
 set_history() {
     local CACHEDIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
-
-    [ -d "$CACHEDIR" ] || mkdir "$CACHEDIR"
-
+    [ -d "$CACHEDIR" ] || mkdir -p "$CACHEDIR"
     HISTFILE="${CACHEDIR}/zhistory"
 }
 
 set_history
+HISTSIZE=50000
+SAVEHIST=50000
 
-HISTSIZE=1000
-
-SAVEHIST=1000
-
-setopt appendhistory
+setopt share_history         # live sharing between sessions (implies inc_append)
+setopt hist_fcntl_lock       # safer locking with concurrent shells
+setopt extended_history      # timestamps (aids recovery)
+setopt hist_ignore_dups      # skip immediate duplicates

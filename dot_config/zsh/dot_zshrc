@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completionrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completionrc" 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/optionsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/optionsrc" 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/historyrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/historyrc" 
