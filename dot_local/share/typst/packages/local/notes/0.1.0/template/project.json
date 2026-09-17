@@ -1,0 +1,8 @@
+{
+  "options": {
+    "open": "zathura",
+    "format": "pdf"
+  },
+  "input": "main.typ",
+  "output": "main.pdf"
+}
