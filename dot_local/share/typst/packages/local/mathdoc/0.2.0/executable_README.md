@@ -1,7 +1,7 @@
 # mathdoc 0.2.0
 
 Mise en forme de documents mathématiques, extraite de `template.typ` du projet
-Bible. Requiert Typst 0.15.1 ou ultérieur, `@preview/theorion:0.4.1` et
+Bible. Requiert Typst 0.15.0 ou ultérieur, `@preview/theorion:0.4.1` et
 `@preview/itemize:0.2.0`.
 
 ```typst

@@ -4,7 +4,7 @@ version = "0.2.0"
 entrypoint = "mathdoc.typ"
 authors = ["Dorian Boully"]
 description = "Documents mathématiques, énoncés et preuves."
-compiler = "0.15.1"
+compiler = "0.15.0"
 
 [template]
 path = "template"
