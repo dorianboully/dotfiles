@@ -1,8 +1,0 @@
-[package]
-name = "article"
-version = "0.1.0"
-entrypoint = "article.typ"
-
-[template]
-path = "template"
-entrypoint = "main.typ"

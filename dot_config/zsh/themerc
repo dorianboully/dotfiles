@@ -1,6 +1,6 @@
 autoload -U colors && colors	# Load colors
 
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%3~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {

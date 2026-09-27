@@ -1,11 +1,20 @@
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completionrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completionrc" 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/optionsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/optionsrc" 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/historyrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/historyrc" 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasesrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasesrc" 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindingsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/keybindingsrc" 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/themerc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/themerc" 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pluginsrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/pluginsrc" 
-[ -f  "$HOME/.local/share/bob/env/env.sh" ] && source "$HOME/.local/share/bob/env/env.sh"
+[ -f "${ZDOTDIR}/completionrc" ] && source "${ZDOTDIR}/completionrc"
+[ -f "${ZDOTDIR}/optionsrc" ] && source "${ZDOTDIR}/optionsrc"
+[ -f "${ZDOTDIR}/historyrc" ] && source "${ZDOTDIR}/historyrc"
+[ -f "${ZDOTDIR}/aliasesrc" ] && source "${ZDOTDIR}/aliasesrc"
+[ -f "${ZDOTDIR}/keybindingsrc" ] && source "${ZDOTDIR}/keybindingsrc"
+[ -f "${ZDOTDIR}/themerc" ] && source "${ZDOTDIR}/themerc"
+[ -f "${ZDOTDIR}/pluginsrc" ] && source "${ZDOTDIR}/pluginsrc"
+# Load Bob's environment from its native location, then the XDG fallback.
+for bob_env in \
+  "$HOME/Library/Application Support/bob/env/env.sh" \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/bob/env/env.sh"; do
+  if [[ -r "$bob_env" ]]; then
+    source "$bob_env"
+    break
+  fi
+done
+unset bob_env
 
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
