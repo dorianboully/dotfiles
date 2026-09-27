@@ -1,12 +1,16 @@
-font-family = "CaskaydiaMono Nerd Font Mono"
-font-style = "Light"
-font-size = 12
+# Use Ghostty's bundled JetBrains Mono with its default weight.
+font-size = {{ if eq .chezmoi.os "darwin" }}13{{ else }}12{{ end }}
 
 theme = dark:Rose Pine,light:Rose Pine Dawn
 
 confirm-close-surface = false
 
+{{ if eq .chezmoi.os "darwin" -}}
+window-decoration = auto
+macos-titlebar-style = tabs
+{{ else -}}
 window-decoration = false
+{{ end }}
 
 keybind = ctrl+alt+s=new_split:right
 keybind = ctrl+alt+v=new_split:down
@@ -17,6 +21,8 @@ keybind = ctrl+alt+j=goto_split:bottom
 keybind = ctrl+alt+k=goto_split:top
 keybind = ctrl+alt+l=goto_split:right
 
+{{ if eq .chezmoi.os "linux" -}}
 keybind = ctrl+alt+t=toggle_window_decorations
+{{ end }}
 
 keybind = ctrl+alt+x=close_surface

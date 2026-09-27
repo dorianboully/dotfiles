@@ -49,6 +49,28 @@ appliquer cette même sélection. Aucun script d'application n'est inclus dans
 le dépôt. Les téléchargements d'Antidote et des plugins ont lieu au démarrage
 de Zsh, pas lors de la prévisualisation chezmoi.
 
+## Ghostty
+
+`dot_config/ghostty/config.tmpl` produit `~/.config/ghostty/config` sur les
+deux OS. Le template chezmoi sélectionne les réglages selon `.chezmoi.os` :
+
+- macOS (`darwin`) : décorations activées et barre de titre intégrant les
+  onglets (`macos-titlebar-style = tabs`).
+- Linux : décorations désactivées, notamment pour éviter la barre de titre
+  de GNOME. `Ctrl-Alt-T` permet de les réactiver temporairement.
+
+La police est JetBrains Mono, embarquée dans Ghostty, avec sa graisse par
+défaut et une taille de 13 points sur macOS, 12 sur Linux. Les thèmes et les autres raccourcis sont
+communs. La fermeture sans confirmation reste activée.
+
+Pour prévisualiser uniquement cette configuration :
+
+```sh
+chezmoi diff ~/.config/ghostty
+```
+
+Pour l'appliquer après revue : `chezmoi apply ~/.config/ghostty`.
+
 ## Git et authentification GitHub
 
 `dot_gitconfig` fournit l'identité Git, la branche initiale `main` et
