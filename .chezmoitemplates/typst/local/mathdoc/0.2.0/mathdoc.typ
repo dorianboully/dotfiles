@@ -15,12 +15,13 @@
 //    / (i): Première partie de la preuve.
 //    / (ii): Deuxième partie de la preuve.
 //  ]
-//  Renvois :  #theorem[...] <thm:bezout>  puis  @thm:bezout → « Théorème 1.2 »
+//  Renvois :  #theorem[...] <thm:bezout>  puis  @thm:bezout → « théorème 1.2 »
 //  Renvois aux items : itemize est activé directement par doc.
 // ============================================================================
 
 #import "@preview/theorion:0.4.1": *
 #import cosmos.simple: *
+#import "proof.typ": proof, qed
 #import "@preview/itemize:0.2.0" as el
 
 // Niveau de titre auquel les énoncés sont rattachés :
@@ -71,6 +72,8 @@
 #let (example-counter, example-box, example, show-example) = env("example", render-roman)
 #let (remark-counter, remark-box, remark, show-remark) = env("remark", render-roman)
 
+#let env-kinds = ("theorem", "lemma", "proposition", "corollary", "definition", "example", "remark")
+
 #let show-envs(body) = {
   show: show-theorem
   show: show-lemma
@@ -79,6 +82,16 @@
   show: show-definition
   show: show-example
   show: show-remark
+  // Renvois en minuscule : @lem:x → « lemme 1.2 », les titres restent inchangés.
+  // Un supplément explicite est conservé : @lem:x[Lemme] en début de phrase.
+  show ref: it => {
+    let el = it.element
+    if el != none and el.func() == figure and el.kind in env-kinds and it.supplement == auto {
+      link(el.location(), [#lower(el.supplement) #context theorion-display-number(el)])
+    } else {
+      it
+    }
+  }
   body
 }
 
@@ -143,6 +156,8 @@
   set text(lang: lang, font: font, size: size)
   set par(justify: true, leading: 0.62em, spacing: 0.9em)
   show math.equation: set text(font: math-font)
+  // Fractions en ligne avec une barre oblique : $a/b$ → a/b.
+  show math.equation.where(block: false): set math.frac(style: "horizontal")
 
   set heading(numbering: "1.1")
   show heading: set block(above: 1.4em, below: 0.8em)
@@ -173,6 +188,15 @@
   }
   show heading.where(level: 1): it => {
     counter(math.equation).update(0)
+    it
+  }
+  // Dans une équation en bloc, #align(center, diagram(...)) est centré sur l'axe
+  // mathématique : le numéro et les symboles voisins s'alignent sur son milieu.
+  show math.equation.where(block: true): it => {
+    show align: a => context {
+      let (width, height) = measure(a.body)
+      box(width: width, height: height, baseline: height / 2 - 0.25em, place(a.body))
+    }
     it
   }
 

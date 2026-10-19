@@ -13,7 +13,7 @@
 #proof[
   #show: proof-terms
   / @condition:premiere: Première partie de la preuve.
-  / @condition:seconde: Deuxième partie de la preuve.
+  / @condition:seconde: Deuxième partie de la preuve. #qed
 ]
 
 On utilise le @thm:exemple et la condition @condition:seconde.

@@ -31,6 +31,49 @@ un compteur, remis à zéro à chaque section. Leurs variantes `theorem-box`,
 automatique ; `proof-terms` s'active dans une preuve pour aligner ses items
 de termes sur la marge gauche. Les labels et `@label` donnent des renvois.
 
+`#qed` (sans parenthèses) place le symbole de fin de preuve à droite de la
+ligne courante. Dans une liste, l'insérer à la fin du dernier item :
+
+```typst
+#proof[
+  + Première étape.
+  + Dernière étape. #qed
+]
+```
+
+Sa présence supprime le symbole automatique de cette preuve. Sans `#qed`,
+le symbole automatique est conservé. Le placement manuel respecte le symbole
+choisi avec `doc(qed: …)` ou `proof(qed: …)` et fonctionne aussi avec
+`proof-terms`. Les preuves imbriquées sont traitées indépendamment.
+
+Dans une équation en bloc, `#qed` est reporté sur la marge droite, au bas de
+l'équation, ce qui permet de terminer une preuve par une formule ou un
+diagramme :
+
+```typst
+#proof[
+  On conclut avec
+  $
+    #align(center, diagram(...))
+    #qed
+  $
+]
+```
+
+Les renvois aux énoncés s'écrivent en minuscule : `@lem:x` donne
+« lemme 1.2 », tandis que l'énoncé garde son titre « Lemme 1.2 ». Un
+supplément explicite est conservé, par exemple `@lem:x[Lemme]` en début de
+phrase.
+
+Les fractions en ligne s'écrivent avec une barre oblique : `$a/b$` donne
+a/b, `$(x+1)/y$` donne (x+1)/y. Les fractions des équations en bloc restent
+empilées.
+
+Dans une équation en bloc, `#align(center, …)` (typiquement autour d'un
+diagramme fletcher) est centré verticalement sur l'axe mathématique : le
+numéro d'équation et les symboles voisins s'alignent sur le milieu du
+diagramme.
+
 Seules les équations en bloc labellisées sont numérotées, par section.
 `doc` active directement `el.config.ref.with(supplement: none)` et
 `el.default-enum` du package itemize. Les items numérotés se référencent avec
