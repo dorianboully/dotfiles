@@ -26,11 +26,26 @@
     metadata(marker)
     box($#symbol$)
   }
-  // Dans une équation en bloc, #qed est reporté sur la marge droite, en bas.
+  // Dans une équation en bloc, #qed prend la place du numéro : marge droite,
+  // ligne de base de la dernière ligne. Si l'équation est déjà numérotée,
+  // le symbole est reporté en fin de preuve.
   show math.equation.where(block: true): eq => {
+    if eq.has("label") and eq.label == <local-qed-equation> { return eq }
     if not has-manual-qed(eq.body) { return eq }
-    show <local-manual-qed>: metadata(marker)
-    block(width: 100%, eq + place(bottom + right, box($#symbol$)))
+    if eq.numbering != none {
+      show <local-manual-qed>: none
+      eq
+    } else {
+      show <local-manual-qed>: metadata(marker)
+      [#math.equation(
+        block: true,
+        numbering: _ => box($#symbol$),
+        number-align: end + bottom,
+        eq.body,
+      )<local-qed-equation>]
+      // Le symbole ne consomme pas de numéro d'équation.
+      counter(math.equation).update(n => n - 1)
+    }
   }
 
   emph(theorion-i18n(title))

@@ -27,7 +27,8 @@ ou en anglais selon `lang`.
 `theorem`, `lemma`, `proposition`, `corollary`, `definition`, `example` et
 `remark` acceptent un corps et un titre optionnel (`title: "…"`). Ils partagent
 un compteur, remis à zéro à chaque section. Leurs variantes `theorem-box`,
-`lemma-box`, etc. ne sont pas numérotées. `proof` fournit une preuve avec QED
+`lemma-box`, etc. ne sont pas numérotées. Un énoncé n'est jamais coupé entre
+deux pages, alors qu'une preuve peut l'être. `proof` fournit une preuve avec QED
 automatique ; `proof-terms` s'active dans une preuve pour aligner ses items
 de termes sur la marge gauche. Les labels et `@label` donnent des renvois.
 
@@ -46,9 +47,11 @@ le symbole automatique est conservé. Le placement manuel respecte le symbole
 choisi avec `doc(qed: …)` ou `proof(qed: …)` et fonctionne aussi avec
 `proof-terms`. Les preuves imbriquées sont traitées indépendamment.
 
-Dans une équation en bloc, `#qed` est reporté sur la marge droite, au bas de
-l'équation, ce qui permet de terminer une preuve par une formule ou un
-diagramme :
+Dans une équation en bloc, `#qed` prend la place du numéro : marge droite,
+alignée sur la ligne de base de la dernière ligne (au milieu d'un diagramme,
+comme un numéro). Il ne consomme pas de numéro d'équation. Si l'équation est
+déjà numérotée, le symbole est reporté en fin de preuve. Cela permet de terminer
+une preuve par une formule ou un diagramme :
 
 ```typst
 #proof[

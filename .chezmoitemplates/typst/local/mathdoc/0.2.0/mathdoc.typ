@@ -33,19 +33,22 @@
 //  Rendu des énoncés : « Théorème 1.2 (titre). » suivi du corps.
 // ---------------------------------------------------------------------------
 
+// Un énoncé n'est jamais coupé entre deux pages.
+#let unbreakable(body) = block(breakable: false, body)
+
 // Énoncés en italique (théorèmes et assimilés).
-#let render-italic(prefix: none, title: "", full-title: auto, body) = {
+#let render-italic(prefix: none, title: "", full-title: auto, body) = unbreakable({
   if full-title != "" { strong[#full-title.] + sym.space }
   emph(body)
   parbreak()
-}
+})
 
 // Énoncés en romain (définitions, exemples, remarques).
-#let render-roman(prefix: none, title: "", full-title: auto, body) = {
+#let render-roman(prefix: none, title: "", full-title: auto, body) = unbreakable({
   if full-title != "" { strong[#full-title.] + sym.space }
   body
   parbreak()
-}
+})
 
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
   "theorem",
